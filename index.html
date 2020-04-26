@@ -7,14 +7,40 @@
         <link rel="stylesheet" href="assets/css/style.css">
         <link rel="stylesheet" href="assets/css/game.js">
        
-  </head>
+        <!--JQUERY script goes in HEAD-->
+        <script src="jquery-3.4.1.min.js"></script>
 
+        <!--added music and nav button-->
+        <link rel="audio" href="assets/audio/loop1.mp3">
+
+        <style>
+          nav#nav1{ margin-top: 24px; }
+          nav#nav1 > a{ background:rgb(119, 166, 211); color:#000; padding:10px; text-decoration:none; border-radius:5px; font-family:"Arial Black", Gadget, sans-serif; }
+          nav#nav1 > a:hover{ background: #40428d; }
+          nav#nav1 > a:active{ background: #cfabcf; }
+          </style>
+          <script>
+          var loop = new Audio();
+          loop.src = 'assets/audio/loop1.mp3';
+          </script>
+
+
+
+      </head>
+    
   <body>
+    <!--added mp3 to body -->
+    <nav id="nav1">
+      <a href="#" onmousedown="loop.play()">Start Intro</a>
+     
+    </nav>
+
+
 
     <div class="wrapper">
-   <h1>Hangman</h1>
+   <h1>"Old School" - Hangman</h1>
 
-    <p>Use the alphabet below to guess the word, or click hint to get a clue. </p>
+    <p>Click a alphabet letter below to try guess the word, or click hint to get a clue. </p>
 </div>
 <div class="wrapper">
     <div id="buttons">
@@ -32,14 +58,14 @@
 </div>
     
         <script src="assets/javascript/game.js"></script>
-       
-       
+        <script src="js/index.js"></script>
+      
         <!-- FOOTER -->
 
        <footer class="sticky-footer">
         <p class=" footer-style">
         <br> <br> <br><br>
-        <strong>© Copywrite Christine Munoz - Hangman Game</strong> <br>
+        <strong>© Copyright Christine Munoz - Hangman Game</strong> <br>
         <a href="https://github.com/christineZ5" target="_blank">GitHub Repo</a>
         |
         <a href="https://github.com/christineZ5" target="_blank">Portfolio</a>

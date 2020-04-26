@@ -8,13 +8,13 @@ window.onload = function () {
   var chosenCategory;     // Selected catagory
   var getHint ;           // Word getHint
   var word ;              // Selected word
-  var guess ;             // Geuss
-  var geusses = [ ];      // Stored geusses
+  var guess ;             // Guess
+  var guesses = [ ];      // Stored guesses
   var lives ;             // Lives
-  var counter ;           // Count correct geusses
+  var counter ;           // Count correct guesses
   var space;              // Number of spaces in word '-'
 
-  // Get elements
+  // Elements
   var showLives = document.getElementById("mylives");
   var showCatagory = document.getElementById("scatagory");
   var getHint = document.getElementById("hint");
@@ -42,15 +42,15 @@ window.onload = function () {
   // Select Catagory
   var selectCat = function () {
     if (chosenCategory === categories[0]) {
-      catagoryName.innerHTML = "The Chosen Catergory: Top 10 movies every TECHY must see";
+      catagoryName.innerHTML = "The Chosen Catergory, Top 10 movies every TECHY must see";
     } else if (chosenCategory === categories[1]) {
-      catagoryName.innerHTML = "The Chosen Catergory: Netflix and Chill";
+      catagoryName.innerHTML = "The Chosen Catergory, Netflix and Chill movies";
     } else if (chosenCategory === categories[2]) {
-      catagoryName.innerHTML = "The Chosen Catergory: Computer Geek TV shows";
+      catagoryName.innerHTML = "The Chosen Catergory, Computer Geek TV shows";
     }
   }
 
-  // Create geusses ul
+  // Create guesses ul
    result = function () {
     wordHolder = document.getElementById('hold');
     correct = document.createElement('ul');
@@ -66,7 +66,7 @@ window.onload = function () {
         guess.innerHTML = "_";
       }
 
-      geusses.push(guess);
+      guesses.push(guess);
       wordHolder.appendChild(correct);
       correct.appendChild(guess);
     }
@@ -78,8 +78,8 @@ window.onload = function () {
     if (lives < 1) {
       showLives.innerHTML = "Game Over";
     }
-    for (var i = 0; i < geusses.length; i++) {
-      if (counter + space === geusses.length) {
+    for (var i = 0; i < guesses.length; i++) {
+      if (counter + space === guesses.length) {
         showLives.innerHTML = "You Win!";
       }
     }
@@ -159,16 +159,16 @@ window.onload = function () {
   // OnClick Function
    check = function () {
     list.onclick = function () {
-      var geuss = (this.innerHTML);
+      var guess = (this.innerHTML);
       this.setAttribute("class", "active");
       this.onclick = null;
       for (var i = 0; i < word.length; i++) {
-        if (word[i] === geuss) {
-          geusses[i].innerHTML = geuss;
+        if (word[i] === guess) {
+          guesses[i].innerHTML = guess;
           counter += 1;
         } 
       }
-      var j = (word.indexOf(geuss));
+      var j = (word.indexOf(guess));
       if (j === -1) {
         lives -= 1;
         comments();
@@ -194,7 +194,7 @@ window.onload = function () {
     console.log(word);
     buttons();
 
-    geusses = [ ];
+    guesses = [ ];
     lives = 10;
     counter = 0;
     space = 0;
@@ -223,7 +223,7 @@ window.onload = function () {
 
    // Reset
 
-  document.getElementById('reset').onclick = function() {
+    document.getElementById('reset').onclick = function() {
     correct.parentNode.removeChild(correct);
     letters.parentNode.removeChild(letters);
     showClue.innerHTML = "";
